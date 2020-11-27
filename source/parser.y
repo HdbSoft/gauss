@@ -3,6 +3,8 @@
 	#include <stdio.h>
 	#include <math.h>
 
+	#include "cli.h"
+
 	int yylex();
 	void yyerror(char * s);
 	extern FILE* yyin;
@@ -55,6 +57,11 @@ void yyerror(char* s) {
 }
 
 int main(int argc, char** argv) {
+	if (!argv[1]) {
+		GaussUsage();
+		return 1;
+	}
+
 	yyin = fopen(argv[1], "r");
 	yyparse();    
 	fclose(yyin);

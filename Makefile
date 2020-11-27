@@ -3,6 +3,7 @@
 # Usage:
 # $ make tests, ccode, dependencies
 output:
+	@cp source/cli.h cli.h
 	@bison -d source/parser.y
 	@mv parser.tab.h y.tab.h
 	@flex source/scanner.l
@@ -11,6 +12,7 @@ output:
 	@mv y.tab.h bins/y.tab.h
 	@mv lex.yy.c bins/lex.yy.c
 	@mv gauss bins/gauss
+	@rm cli.h
 
 tests:
 	@./gauss tests/addition.math
