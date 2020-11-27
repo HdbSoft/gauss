@@ -17,7 +17,7 @@
 
 [0-9]+(\.[0-9]+)?       { yylval.d= (double) atof(yytext); return VAL; }
 [+*/)(\n,-]             return * yytext; 
-\*\*                    return POW; 
+\^                      return POW; 
 log                     return LOG;
 max                     return MAX;
 =                       return END;
