@@ -7,6 +7,10 @@ output:
 	@mv parser.tab.h y.tab.h
 	@flex source/scanner.l
 	@gcc lex.yy.c parser.tab.c -o gauss -lm
+	@mv parser.tab.c bins/parser.tab.c
+	@mv y.tab.h bins/y.tab.h
+	@mv lex.yy.c bins/lex.yy.c
+	@mv gauss bins/gauss
 
 tests:
 	@./gauss tests/addition.math
