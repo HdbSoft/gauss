@@ -19,7 +19,9 @@
 [+*/)(\n,-]             return * yytext; 
 \^                      return POW;
 sqrt                    return SQRT; 
+ln                      return LN;
 log                     return LOG;
+log2                    return LOG2;
 exp                     return EXP;
 max                     return MAX;
 abs                     return ABS;

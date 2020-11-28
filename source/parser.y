@@ -18,7 +18,7 @@
 %token VAL MAX END EXIT
 %left '-' '+'
 %left '*' '/'
-%right POW SQRT LOG EXP ABS CEIL FLOOR SIN SINH ASIN ASINH COS COSH ACOS ACOSH TAN TANH ATAN ATANH
+%right POW SQRT LN LOG LOG2 EXP ABS CEIL FLOOR SIN SINH ASIN ASINH COS COSH ACOS ACOSH TAN TANH ATAN ATANH
 %nonassoc '(' ')'
 %right NEG
 %type<d> exp max_params
@@ -40,7 +40,9 @@ exp             : VAL                       { $$ = $<d>1; }
                 | exp '*' exp               { $$ = $<d>1 * $<d>3; }
                 | exp POW exp               { $$ = pow($<d>1, $<d>3); }
                 | SQRT exp                  { $$ = sqrt($<d>2); }
-                | LOG exp                   { $$ = log($<d>2);  }
+                | LN exp                    { $$ = log($<d>2);  }
+                | LOG exp                   { $$ = log10($<d>2);}
+                | LOG2 exp                  { $$ = log2($<d>2); }
                 | EXP exp                   { $$ = pow(2.71828182, $<d>2); }
                 | ABS exp                   { $$ = abs($<d>2);  }
                 | CEIL exp                  { $$ = ceil($<d>2); }
