@@ -3,9 +3,6 @@
 
 #include <math.h>
 
-#define pi 3.14159265
-#define e  2.71828182
-
 int hcd(int a, int b) {
     int tmp;
     while (b != 0) {
