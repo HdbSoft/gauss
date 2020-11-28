@@ -58,7 +58,7 @@ void yyerror(char* s) {
 
 int main(int argc, char** argv) {
 	if (!argv[1]) {
-		GaussUsage();
+		NullParamError();
 		return 1;
 	}
 
