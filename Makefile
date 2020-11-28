@@ -20,6 +20,8 @@ tests:
 	@./gauss tests/multiplication.math
 	@./gauss tests/division.math
 	@./gauss tests/exponentiation.math
+	@./gauss tests/trigonometry.math
+	@./gauss tests/functions.math
 
 ccode:
 	@bison -d source/parser.y
