@@ -12,7 +12,7 @@ void NullParamError() {
 		"No options selected, aborting...\n"
 		"\n"
 		"Usage:\n"
-		"$ gauss <file>"
+		"$ gauss <file>\n"
 	);
 }
 
