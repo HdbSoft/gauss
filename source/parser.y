@@ -18,7 +18,7 @@
 %token VAL MAX END EXIT
 %left '-' '+'
 %left '*' '/'
-%right POW SQRT LOG EXP SIN SINH COS COSH TAN TANH
+%right POW SQRT LOG EXP SIN SINH ASIN ASINH COS COSH ACOS ACOSH TAN TANH ATAN ATANH
 %nonassoc '(' ')'
 %right NEG
 %type<d> exp max_params
@@ -44,10 +44,16 @@ exp             : VAL                       { $$ = $<d>1; }
                 | EXP exp                   { $$ = pow(2.71828182, $<d>2); }
                 | SIN exp                   { $$ = sin($<d>2);  }
                 | SINH exp                  { $$ = sinh($<d>2); }
+                | ASIN exp                  { $$ = asin($<d>2); }
+                | ASINH exp                 { $$ = asinh($<d>2);}
                 | COS exp                   { $$ = cos($<d>2);  }
                 | COSH exp                  { $$ = cosh($<d>2); }
+                | ACOS exp                  { $$ = acos($<d>2); }
+                | ACOSH exp                 { $$ = acosh($<d>2);}
                 | TAN exp                   { $$ = tan($<d>2);  }
                 | TANH exp                  { $$ = tanh($<d>2); }
+                | ATAN exp                  { $$ = atan($<d>2); }
+                | ATANH exp                 { $$ = atanh($<d>2);}
                 | '-' exp %prec NEG         { $$ = -$<d>2; }
                 | '(' exp ')'               { $$ = $<d>2; }
                 | MAX '(' max_params ')'    { $$ = $<d>3; }

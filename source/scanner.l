@@ -24,10 +24,16 @@ exp                     return EXP;
 max                     return MAX;
 sin                     return SIN;
 sinh                    return SINH;
+asin                    return ASIN;
+asinh                   return ASINH;
 cos                     return COS;
 cosh                    return COSH;
+acos                    return ACOS;
+acosh                   return ACOSH;
 tan                     return TAN;
 tanh                    return TANH;
+atan                    return ATAN;
+atanh                   return ATANH;
 =                       return END;
 exit                    return EXIT;
 .                       { /* not matched */ }
