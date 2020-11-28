@@ -20,6 +20,12 @@
 \^                      return POW; 
 log                     return LOG;
 max                     return MAX;
+sin                     return SIN;
+sinh                    return SINH;
+cos                     return COS;
+cosh                    return COSH;
+tan                     return TAN;
+tanh                    return TANH;
 =                       return END;
 exit                    return EXIT;
 .                       { /* not matched */ }
