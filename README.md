@@ -19,7 +19,7 @@ $ make
 
 
 ### Gauss reference
-If you want to create your own Gauss script, you have to know the basic syntax. Every formula must end with `=`, and must contain ONLY NUMBERS.
+If you want to create your own Gauss script, you have to know the basic syntax. Every formula must end with `=`, and must contain ONLY NUMBERS, NOT STRINGS.
 
 ###### Operators
 - `+`: Addition
@@ -30,11 +30,26 @@ If you want to create your own Gauss script, you have to know the basic syntax. 
 
 ###### Functions
 - `max(x, y)`: Maximum of 2 numbers
-- `min(x, y)`: Minimum of 2 numbers
-- `log x`: Logarithm of x
+- `sqrt x`: Square root of x
+- `ln x`: Natural logarithm of x
+- `log x`: Logarithm of x (base 10)
+- `log2 x`: Logarithm of x (base 2)
+- `exp x`: e raised to x
+- `abs x`: Absolute value of x
+- `floor x`: Floor of x
+- `ceil x`: Ceil of x
 - `sin x`: Sine of x
+- `sinh x`: Hyperbolic sine of x
+- `asin x`: Arcosine of x
+- `asinh x`: Arco hyperbolic sine of x
 - `cos x`: Cosine of x
+- `cosh x`: Hyperbolic sine of x
+- `acos x`: Arcocosine of x
+- `acosh x`: Arco hyperbolic cosine of x
 - `tan x`: Tan of x
+- `tanh x`: Hyperbolic tan of x
+- `atan x`: Arcotan of x
+- `atanh x`: Arco hyperbolic tan of x
 
 
 ### Gauss file tree
@@ -47,6 +62,8 @@ If you want to create your own Gauss script, you have to know the basic syntax. 
 - **tests/multiplication.math:** Multiplication tests
 - **tests/division.math:** Division tests
 - **tests/exponentiation.math:** Exponentiation tests
+- **tests/trigonometry.math:** Trigonometry tests
+- **tests/functions.math:** Functions tests
 
 
 ### [MIT license](LICENSE.md)
