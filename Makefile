@@ -1,16 +1,23 @@
 # Gauss Makefile
 #
 # Usage:
-# $ make install, tests, ccode, dependencies
+# $ make install, gauss, igauss, tests, ccode, dependencies
 output:
-	@make ccode
-	@gcc source/gauss.c -o bins/gauss
-	@gcc source/igauss.c -o bins/igauss
+	@make gauss
+	@make igauss
 
 install:
 	@make
 	@mv bins/gauss /bin/
 	@mv bins/igauss /bin/
+
+gauss:
+	@make ccode
+	@gcc source/gauss.c -o bins/gauss
+
+igauss:
+	@make ccode
+	@gcc source/igauss.c -o bins/igauss
 
 tests:
 	@./bins/gauss tests/addition.math
