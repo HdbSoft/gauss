@@ -1,36 +1,29 @@
 # Gauss Makefile
 #
 # Usage:
-# $ make tests, ccode, dependencies
+# $ make install, tests, ccode, dependencies
 output:
-	@cp source/cli.h cli.h
-	@bison -d source/parser.y
-	@mv parser.tab.h y.tab.h
-	@flex source/scanner.l
-	@gcc lex.yy.c parser.tab.c -o gauss -lm
-	@mv parser.tab.c bins/parser.tab.c
-	@mv y.tab.h bins/y.tab.h
-	@mv lex.yy.c bins/lex.yy.c
-	@mv gauss bins/gauss
-	@rm cli.h
+	@make ccode
+	@gcc source/gauss.c -o bins/gauss
+	@gcc source/igauss.c -o bins/igauss
 
 install:
 	@make
 	@mv bins/gauss /bin/
+	@mv bins/igauss /bin/
 
 tests:
-	@./gauss tests/addition.math
-	@./gauss tests/substraction.math
-	@./gauss tests/multiplication.math
-	@./gauss tests/division.math
-	@./gauss tests/exponentiation.math
-	@./gauss tests/trigonometry.math
-	@./gauss tests/functions.math
+	@./bins/gauss tests/addition.math
+	@./bins/gauss tests/substraction.math
+	@./bins/gauss tests/multiplication.math
+	@./bins/gauss tests/division.math
+	@./bins/gauss tests/exponentiation.math
+	@./bins/gauss tests/trigonometry.math
+	@./bins/gauss tests/functions.math
 
 ccode:
-	@bison -d source/parser.y
-	@mv parser.tab.h y.tab.h
-	@flex source/scanner.l
+	@bison -d source/API/parser.y -o source/API/y.tab.c
+	@flex -o source/API/lex.yy.c source/API/scanner.l
 
 dependencies:
 	@apt-get update

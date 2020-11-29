@@ -2,7 +2,7 @@
 #define __GAUSS_CLI_H__
 
 void Error(char* msg) {
-	fprintf(stderr, msg);
+	fprintf(stderr, "%s\n", msg);
 }
 //Error function
 

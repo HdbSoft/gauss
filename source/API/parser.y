@@ -3,8 +3,6 @@
 	#include <stdio.h>
 	#include "math.h"
 
-	#include "cli.h"
-
 	int yylex();
 	void yyerror(char * s);
 	extern FILE* yyin;
@@ -75,14 +73,20 @@ void yyerror(char* s) {
 	fprintf(stderr, "%s \n", s);
 }
 
-int main(int argc, char** argv) {
-	if (!argv[1]) {
-		NullParamError();
-		return 1;
-	}
+void GaussFile(char* filename) {
+    yyin = fopen(filename, "r");
+    yyparse();
+    fclose(yyin);
+    return;
+}
 
-	yyin = fopen(argv[1], "r");
-	yyparse();    
+void GaussText(char* formula) {
+    FILE* tmp = fopen("__GaussTemporary__", "w");
+    fputs(formula, tmp);
+    fclose(tmp);
+    yyin = fopen("__GaussTemporary__", "r");
+	yyparse();
 	fclose(yyin);
-	return 0;
+    remove("__GaussTemporary__");
+	return;
 }
