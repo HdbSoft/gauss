@@ -14,6 +14,10 @@ output:
 	@mv gauss bins/gauss
 	@rm cli.h
 
+install:
+	@make
+	@mv bins/gauss /bin/
+
 tests:
 	@./gauss tests/addition.math
 	@./gauss tests/substraction.math
