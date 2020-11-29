@@ -1,6 +1,9 @@
 #ifndef __GAUSS_API__
 #define __GAUSS_API__
 
+/* Gauss math API */
+#include "math.h"
+
 /* Gauss lexical analyzer */
 #include "lex.yy.c"
 

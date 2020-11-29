@@ -1,7 +1,6 @@
 %{
 	#include <stdlib.h>
 	#include <stdio.h>
-	#include "math.h"
 
 	int yylex();
 	void yyerror(char * s);
