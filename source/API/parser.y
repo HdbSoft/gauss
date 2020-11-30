@@ -1,6 +1,8 @@
 %{
-	#include <stdlib.h>
-	#include <stdio.h>
+	#include "include.h"
+
+    extern yy_buffer_state;
+	struct yy_buffer_state* yy_scan_buffer(char *, size_t);
 
 	int yylex();
 	void yyerror(char * s);
@@ -72,20 +74,14 @@ void yyerror(char* s) {
 	fprintf(stderr, "%s \n", s);
 }
 
-void GaussFile(char* filename) {
+void GaussScript(char* filename) {
     yyin = fopen(filename, "r");
     yyparse();
     fclose(yyin);
     return;
 }
 
-void GaussText(char* formula) {
-    FILE* tmp = fopen("__GaussTemporary__", "w");
-    fputs(formula, tmp);
-    fclose(tmp);
-    yyin = fopen("__GaussTemporary__", "r");
-	yyparse();
-	fclose(yyin);
-    remove("__GaussTemporary__");
+void GaussFormula(char* formula) {
+	yy_scan_buffer(formula, strlen(formula));
 	return;
 }

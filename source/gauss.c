@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 		return 1;
 
 	} else {
-		GaussFile(argv[1]);
+		GaussScript(argv[1]);
 	}
 
 	return 0;

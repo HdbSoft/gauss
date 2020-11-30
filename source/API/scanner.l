@@ -1,6 +1,6 @@
 %option noyywrap
 %{
-    #include <stdlib.h>
+    #include "include.h"
 	#include "y.tab.h"
     void yyerror(char* s);
 %}

@@ -5,8 +5,6 @@ Gauss calculator*/
 
 #include "API/gauss.h"
 
-#include "cli.h"
-
 int main() {
 	char* expression;
 
@@ -17,7 +15,7 @@ int main() {
 	while (1) {
 		printf("iGauss~> ");
 		scanf("%s", expression);
-		GaussText(expression);
+		GaussFormula(expression);
 	}
 
 	return 0;
